@@ -101,7 +101,7 @@ const Navbar = () => {
             </ul>
 
             <div className="sidebar-bottom">
-              <Button text={'View Whitepaper'}/>
+              <Button className="nav-btn" text={'View Whitepaper'}/>
 
               <div className="sidebar-socials">
                 {[0, 1, 2].map((_, i) => (

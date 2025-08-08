@@ -38,7 +38,7 @@ const App = () => {
     <DaoSection />
    <Usecases />
    <Community_card />
-    {/* <Roadmap /> */}
+    <Roadmap />
 
     <Footer />
 
