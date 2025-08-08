@@ -1,4 +1,3 @@
-
 /* Overall container for header, roadmap section, and button */
 .roadmap-overall-container {
   display: flex;
@@ -46,7 +45,6 @@
   align-items: center;
   padding-left: calc(50vw - 706.5px); /* Adjust based on card width and desired initial view */
   box-sizing: border-box;
-  padding: 0 3rem;
 }
 
 .roadmap-container {
@@ -71,10 +69,10 @@
   border-radius: 30px;
   padding: 50px;
   width: 100%;
-  max-width: 500px; /* Important for consistent card width */
+  max-width: 550px; /* Important for consistent card width */
   color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  border: 1.6px solid rgba(233, 230, 230, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
   box-sizing: border-box;
   min-height: 400px;
@@ -93,25 +91,27 @@
   left: -1px;
   right: -1px;
   bottom: -1px;
-  /* border-radius: 30px; */
+  border-radius: 30px;
   pointer-events: none;
   opacity: 0; /* Initially hidden */
   z-index: 0;
-  
+  /* Green gradient mask - Adjusted for a more pronounced top-down glow and increased height */
   -webkit-mask-image: radial-gradient(
-    ellipse at 50% 0, 
-    rgb(39, 214, 144) 10%,  
-    rgba(39, 214, 144, 0.1) 50%, 
-    transparent 90% 
+    ellipse at 50% 0, /* Use ellipse for a softer, more focused top glow */
+    rgb(39, 214, 144) 0%, /* Full green at the very top */
+    rgba(39, 214, 144, 0.7) 20%, /* Strong green, slightly transparent, extending down */
+    rgba(39, 214, 144, 0.1) 50%, /* Very faint green, extending further */
+    transparent 90% /* Fully transparent, ensuring glow extends almost to the bottom */
   );
   mask-image: radial-gradient(
-    ellipse at 50% 0, 
-    rgb(39, 214, 144) 10%,  
-    rgba(39, 214, 144, 0.1) 50%, 
-    transparent 90% 
+    ellipse at 50% 0, /* Use ellipse for a softer, more focused top glow */
+    rgb(39, 214, 144) 0%, /* Full green at the very top */
+    rgba(39, 214, 144, 0.7) 10%, /* Strong green, slightly transparent, extending down */
+    rgba(39, 214, 144, 0.1) 60%, /* Very faint green, extending further */
+    transparent 90% /* Fully transparent, ensuring glow extends almost to the bottom */
   );
-  background: rgb(39, 214, 144); 
-  transition: opacity 0.3s ease-out; 
+  background: rgb(39, 214, 144); /* Base green background for the glow, full opacity */
+  transition: opacity 0.3s ease-out; /* Smooth transition for opacity */
 }
 
 /* === Inner content layer stays above border mask === */
@@ -191,10 +191,14 @@
 
 /* Class to apply when card is active/in view */
 .roadmap-card.is-active::before {
-  opacity: 0.1; 
+  opacity: 0.2; /* Decreased opacity for the main glow to 0.5 */
 }
 
-
+/* Active state for the card, including the top border glow */
+.roadmap-card.is-active {
+  box-shadow: inset 0 8px 15px -5px rgba(39, 214, 144, 0.3), /* Very light top border glow */
+              0 0 20px rgba(0, 0, 0, 0.3); /* Existing card shadow */
+}
 
 /* === Responsive Breakpoints === */
 @media (max-width: 1158px) {

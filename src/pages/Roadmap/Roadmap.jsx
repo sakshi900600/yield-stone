@@ -271,7 +271,6 @@ const Roadmap = () => {
     return () => ctx.revert();
   }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
 
-  
   return (
     // Overall container to manage vertical layout and centering of all elements
     <div className="roadmap-overall-container">
