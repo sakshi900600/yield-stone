@@ -21,15 +21,15 @@ const App = () => {
 
 
 
-    {/* <Navbar /> */}
+    <Navbar />
     {/* <Hero /> */}
 
-    {/* <div style={{paddingTop: '20vh'}}>
+    <div style={{paddingTop: '20vh'}}>
       <FeatureSlider />
-    </div> */}
+    </div>
 
     {/* <FeatureSlider /> */}
-    {/* <About />
+    <About />
    <Benefits_card />
    <Technology />
    <FeatureSlider stripePosition="bottom" />
@@ -37,11 +37,12 @@ const App = () => {
     <TeamSection />
     <DaoSection />
    <Usecases />
-   <Community_card /> */}
-    <Roadmap />
+   <Community_card />
+    {/* <Roadmap /> */}
 
-    {/* <Footer /> */}
+    <Footer />
 
+    {/* <Roadmap /> */}
    
     {/* <LiquidityCard /> */}
 
