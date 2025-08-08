@@ -1,0 +1,134 @@
+.usecase-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding: 15px;
+}
+
+/* ✅ Make gradient background scroll WITH the section */
+.usecase-container::before {
+  content: "";
+  position: absolute; /* 🔁 changed from fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/HeroAssets/gradient_bg.svg');
+  background-repeat: no-repeat;
+  background-size: 220%;
+  background-position: center center;
+  z-index: -1;
+  opacity: 0.8;
+
+  /* Masked edges */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-size: 100%;
+  mask-size: 100%;
+}
+
+
+
+
+
+.usecase-grid{
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 19px;
+  font-family: 'Plus Jakarta Sans', Tahoma, sans-serif;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.usecase-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 0.3px solid rgba(74, 74, 74, 0.5);
+  background-image: radial-gradient(circle at 50% 0, #ffffff14, #ffffff0a 70%, #fff0);
+  height: auto;
+  width: 380px;
+  background-color: #151e2b;
+  padding: 27px;
+  border-radius: 29px;
+  position: relative;
+}
+
+.usecase-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px; /* adjust how much area it covers */
+  background-image: radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.8392156863), rgba(255, 255, 255, 0.168627451) 66%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  opacity: 0.07; /* 🔥 control opacity */
+  z-index: 0;
+   filter: blur(9px);
+   transition: all 0.3s ease-in-out;
+}
+
+/* Bring content above the background */
+.usecase-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.usecase-card img{
+  height: 60px;
+  width: 60px;
+  margin-bottom: 12px;
+}
+
+.usecase-card h1{
+  font-size: 1.6rem;
+  padding-bottom: 7px;
+  font-weight: 700;
+}
+
+.usecase-card p{
+  font-size: 13px;
+  text-align: center;
+}
+
+.usecase-card:hover h1{
+  color: #26d18c;
+  transition: all 0.3s ease-in-out;
+}
+
+.usecase-card:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px; 
+  background-image: radial-gradient(circle at 50% 0, #27d690, rgba(39, 214, 144, 0.168627451) 74%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  opacity: 0.23; 
+  z-index: 0;
+   filter: blur(12px);
+   transition: all 0.3s ease-in-out;
+}
+
+
+@media (max-width: 993px){
+  .usecase-grid{
+    flex-direction: column;
+  }
+  .usecase-card{
+    width: 100%;
+  }
+}

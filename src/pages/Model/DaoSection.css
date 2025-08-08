@@ -1,0 +1,256 @@
+/* Main container for the DAO section */
+.dao-section-container {
+  position: relative;
+  padding: 80px 20px; /* Add overall padding for the section */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  overflow: hidden; /* Hide anything that goes beyond this section */
+}
+
+/* Wrapper for the main image and background images */
+.dao-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px; /* Limit the max width of the content area */
+  margin-top: 60px; /* Space between header and image */
+  display: flex;
+  justify-content: center; /* Center the main image */
+  align-items: center;
+  min-height: 500px; /* Ensure enough height for the section */
+}
+
+/* Background images */
+.dao-bg-image {
+  position: absolute;
+  width: 30%; /* Adjust size as needed */
+  /* height: auto; */
+  opacity: 0.9; /* Increased opacity for better visibility */
+  z-index: 0; /* Behind the main image */
+  pointer-events: none; /* Ensure they don't interfere with clicks */
+  filter: brightness(0) invert(1); /* Ensures image is white */
+}
+
+.dao-bg-image.dao-top-right {
+  top: 0;
+  right: 0;
+  transform-origin: center;
+  transform: scaleY(-1) translate(60%, 15%); /* Adjust position to be outside the main view */
+}
+
+.dao-bg-image.dao-bottom-left {
+  bottom: 0;
+  left: 0;
+  transform-origin: center;
+  transform: translate(-10%, 10%); /* Adjust position to be outside the main view */
+}
+
+/* Main interactive image container */
+.dao-main-image-container {
+  position: relative;
+  z-index: 1; /* Above background images */
+  cursor: pointer;
+  overflow: hidden; /* Ensure shadow stays within bounds */
+  transition: box-shadow 0.3s ease-out; /* Smooth transition for shadow */
+  display: inline-block; /* Allows auto width and height based on image */
+  max-width: 90vw; /* Set max-width to 90vw for larger image */
+}
+
+.dao-main-image {
+  display: block; /* Remove extra space below image */
+  width: 100%;
+  height: auto;
+  max-width: 90vw; 
+}
+
+/* Hover effect for the main image container */
+.dao-main-image-container:hover {
+  /* Green shadow with blur effect */
+  box-shadow: 0 0 15px 5px rgba(39, 214, 144, 0.7);
+}
+
+/* Zoom icon */
+.zoom-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent; /* Removed green background */
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease-out; /* Smooth transition */
+  pointer-events: none; /* Don't block clicks on the image itself */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Added subtle white border */
+}
+
+.dao-main-image-container:hover .zoom-icon {
+  opacity: 1; /* Show on hover */
+}
+
+.zoom-icon svg {
+  color: white; /* Icon color */
+  width: 30px;
+  height: 30px;
+}
+
+/* --- Modal Styles --- */
+.dao-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* High z-index to be on top */
+  backdrop-filter: blur(5px); /* Optional: blur background */
+}
+
+.dao-modal-content {
+  position: relative;
+  background-color: transparent; /* Changed to transparent to show blurred background */
+  padding: 0; /* Removed padding to make image full size in modal */
+  border-radius: 0; /* No border-radius for modal content */
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none; /* Removed box-shadow from modal content */
+}
+
+/* New container for modal controls (close and zoom buttons) */
+.dao-modal-header-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 1001; /* Ensure controls are above modal content */
+}
+
+.dao-modal-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  display: flex; /* Ensure SVG is centered */
+  align-items: center;
+  justify-content: center;
+}
+
+.dao-modal-close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dao-modal-close-btn svg {
+  width: 30px;
+  height: 30px;
+  color: white; /* Icon color */
+}
+
+.dao-modal-image {
+  max-width: 100%;
+  max-height: calc(90vh - 80px); /* Adjust based on controls height */
+  object-fit: contain; /* Ensure entire image is visible */
+  transition: transform 0.3s ease-out; /* Smooth zoom transition */
+  border-radius: 0; /* Removed border-radius */
+}
+
+.dao-modal-controls {
+  /* Removed margin-top as it's now part of dao-modal-header-controls */
+  display: flex;
+  gap: 15px; /* Gap between zoom buttons if more are added */
+}
+
+.dao-modal-controls button {
+  background-color: transparent; /* Removed green background */
+  color: #0a0a1a; /* Dark text/icon color */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Added subtle white border */
+  border-radius: 50%; /* Made circular */
+  padding: 8px; /* Adjusted padding for circular shape */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dao-modal-controls button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover background */
+  transform: translateY(-2px);
+}
+
+.dao-modal-controls button svg {
+  width: 24px;
+  height: 24px;
+  color: white; /* Icon color */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .dao-bg-image {
+    display: none; /* Hide background images on small screens */
+  }
+
+  .dao-section-container {
+    padding: 60px 15px;
+  }
+
+  .dao-image-wrapper {
+    margin-top: 40px;
+    min-height: 300px;
+  }
+
+  .dao-main-image,
+  .dao-main-image-container {
+    max-width: 100%; /* Ensure it's responsive on smaller screens */
+  }
+
+  .dao-modal-content {
+    padding: 15px;
+  }
+
+  .dao-modal-close-btn {
+    font-size: 20px;
+    padding: 3px; /* Smaller padding for mobile */
+  }
+
+  .dao-modal-close-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .dao-modal-image {
+    max-height: calc(90vh - 60px);
+  }
+
+  .dao-modal-controls button {
+    padding: 6px; /* Smaller padding for mobile */
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dao-section-container {
+    padding: 40px 10px;
+  }
+
+  .dao-image-wrapper {
+    margin-top: 30px;
+    min-height: 250px;
+  }
+}

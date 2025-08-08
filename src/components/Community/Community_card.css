@@ -1,0 +1,195 @@
+/* Container */
+.community-container {
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 24px;
+  gap: 29px;
+  overflow-x: hidden; /* 🔥 Prevents horizontal scrollbar */
+  box-sizing: border-box;
+  padding-bottom: 45px;
+}
+
+/* Card */
+.community-card {
+  border: 0.3px solid rgba(74, 74, 74, 0.5);
+  width: 48%;
+  min-width: 300px;
+  border-radius: 12px;
+  padding: 16px;
+  background-image: radial-gradient(circle at 50% 0, #ffffff14, #ffffff0a 70%, #fff0);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Card Top */
+.card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.card-top .icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.community-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.community-content h1 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding-bottom: 6px;
+  margin: 0;
+}
+
+.community-content p {
+  font-size: 14px;
+  margin: 0;
+  max-width: 300px;
+  line-height: 1.5;
+}
+
+/* Text Button */
+.community-text-button {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+}
+
+.outline-img {
+  width: 90px;
+  height: 90px;
+}
+
+.arrow-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #26d18c;
+  color: black;
+  border-radius: 50%;
+  padding: 8px;
+  transition: all 0.3s ease;
+}
+
+.arrow-right {
+  display: none;
+}
+
+.community-card:hover .arrow-right {
+  display: block;
+}
+
+.community-card:hover .arrow {
+  display: none;
+}
+
+/* Card Bottom */
+.card-bottom {
+  position: relative;
+  overflow: hidden;
+  border: 0.3px solid rgba(74, 74, 74, 0.5);
+  margin-top: 16px;
+}
+
+.cb-img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.cb-hover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover Effects */
+.community-card:hover .cb-img {
+  transform: scale(1.03);
+}
+
+.community-card:hover .cb-hover {
+  opacity: 0.9;
+}
+
+.community-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Responsive Breakpoints */
+@media (max-width: 992px) {
+  .community-card {
+    width: 100%;
+  }
+
+  .community-content {
+    align-items: flex-start;
+  }
+
+  .outline-img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .arrow-icon {
+    padding: 6px;
+  }
+
+  .community-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .community-content p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .community-content h1 {
+    font-size: 1.3rem;
+  }
+
+  .community-content p {
+    font-size: 12px;
+  }
+
+  .outline-img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .arrow-icon {
+    padding: 5px;
+  }
+}
+
+
+@media (max-width:473px){
+  .community-text-button{
+    display: none;
+  }
+  .icon{
+    /* width: 25px; */
+  /* height: 25px; */
+  padding: 5px;
+  }
+}

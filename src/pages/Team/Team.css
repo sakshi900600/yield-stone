@@ -1,0 +1,255 @@
+    /* background-image: linear-gradient(#27d69000, #27d6902e); */
+
+
+
+    /* Container setup */
+.team-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  /* padding: 2rem; */
+  /* gap: 2rem; */
+}
+
+.team-card {
+  width: 100%;
+  max-width: 300px;
+  overflow: visible;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid #2a2a2a; */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+/* Profile Image Setup */
+.team-card-top {
+  padding: 2rem 1.4rem;
+  position: relative;
+  width: 100%;
+  flex: 1;
+
+  /* Apply gradient only to bottom 50% */
+  background: linear-gradient(to top, #27d6902e 0%, #27d69000 50%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%; /* apply gradient to bottom 50% only */
+  background-position: bottom;
+}
+
+
+/* .team-card-top::before {
+  content: "";
+  position: absolute;
+  top: 60%; 
+  left: -1px; 
+  width: 5px;
+  height: 40%; 
+  background-image: linear-gradient(90deg, #57daa0, #060318);
+   z-index: 1; 
+  opacity: 0.3;
+} */
+
+
+.team-card-top::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-image: linear-gradient(90deg, #57daa0, #c2e3c5);
+}
+
+
+.profile {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  border: 1px solid #27d690;
+}
+
+.team-card-top:hover .profile img {
+  transform: scale(1.05);
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Corner borders */
+.corners {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  z-index: 2;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+  border-top: 4px solid #fff;
+  border-left: 4px solid #fff;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+  border-top: 4px solid #fff;
+  border-right: 4px solid #fff;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom: 4px solid #fff;
+  border-left: 4px solid #fff;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom: 4px solid #fff;
+  border-right: 4px solid #fff;
+}
+
+
+.team-card-top:hover  .bottom-right{
+  border-color: #27d690;
+}
+
+.team-card-top:hover  .bottom-left{
+  border-color: #27d690;
+}
+
+.team-card-top:hover  .top-right{
+  border-color: #27d690;
+}
+
+.team-card-top:hover  .top-left{
+  border-color: #27d690;
+}
+
+
+
+.profile-topper .top-left {
+  top: 0;
+  left: 0;
+  border-top: 4px solid #27d690;
+  border-left: 4px solid #27d690;
+}
+
+.profile-topper .top-right {
+  top: 0;
+  right: 0;
+  border-top: 4px solid #27d690;
+  border-right: 4px solid #27d690;
+}
+
+.profile-topper .bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom: 4px solid #27d690;
+  border-left: 4px solid #27d690;
+}
+
+.profile-topper .bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom: 4px solid #27d690;
+  border-right: 4px solid #27d690;
+}
+
+
+
+
+
+
+
+
+/* Profile-topper */
+.profile-topper {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #060318b5;
+  padding: 0.6rem;
+  width: 180px;
+  border: 3px solid #060318;
+  text-align: center;
+  z-index: 3;
+  transition: border-color 0.3s;
+}
+
+.profile-topper p {
+  font-size: 1rem;
+  color: #27d690;
+  font-weight: 600;
+  margin: 0;
+}
+
+.profile-topper a {
+  margin-top: 6px;
+  display: inline-block;
+  color: white;
+}
+
+.profile-topper a:hover {
+  color: #27d690;
+}
+
+/* Profile Decor (gradient + line) */
+.profile-decor {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8px;
+}
+
+
+
+
+
+/* Text Area */
+.team-card-bottom {
+  margin-top: 0.5rem;
+  padding: 1rem 1.25rem 2rem;
+  font-size: 0.97rem;
+  color: #ccc;
+  line-height: 1.5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .team-card {
+    max-width: 90%;
+  }
+
+  .profile {
+    width: 100%;
+    height: auto;
+  }
+
+  .profile-topper {
+    width: 90%;
+  }
+
+  .team-card-bottom {
+    font-size: 0.85rem;
+  }
+}
+
+

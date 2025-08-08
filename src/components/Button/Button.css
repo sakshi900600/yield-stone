@@ -1,0 +1,49 @@
+/* All styling for the AnimatedButton component */
+
+.animated-button {
+  display: inline-flex; /* Use inline-flex to prevent the button from taking full width */
+  align-items: center;
+  padding: 0.885rem 1.6rem; /* px-6 py-3 */
+  color: #fff;
+  background-color: #27D690;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  text-decoration: none;
+  justify-content: space-between;
+}
+
+.button-text {
+  position: relative;
+  z-index: 10;
+  font-size: 1rem; 
+  font-weight: 300;
+  line-height: 1.75rem;
+  color: black;
+}
+
+@media (min-width: 768px) {
+  .button-text {
+    font-size: 1.25rem; /* md:text-xl */
+    line-height: 1.75rem;
+  }
+}
+
+.arrow-container {
+  background-color: #060318;
+  padding: 0.5rem; /* p-2 */
+  margin-left: 1rem; /* ml-4 */
+  position: relative;
+  width: 2.5rem; /* w-[2.5rem] */
+  height: 2.5rem; /* h-[2.5rem] */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.arrow-svg {
+  position: absolute;
+  /* The motion transforms will override this */
+}
+

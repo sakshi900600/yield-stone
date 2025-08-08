@@ -1,0 +1,154 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding: 63px;
+  gap: 69px;
+  color: white;
+  font-family: "Plus Jakarta Sans", Tahoma, sans-serif;
+  border: 0.3px solid rgba(74, 74, 74, 0.5);
+  background-image: radial-gradient(
+    circle at 50% 0,
+    #ffffff14,
+    #ffffff0a 70%,
+    #fff0
+  );
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-image: radial-gradient(
+    circle at 50% 0,
+    rgba(255, 255, 255, 0.8392156863),
+    rgba(255, 255, 255, 0.168627451) 66%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  opacity: 0.07;
+  z-index: 0;
+  filter: blur(12px);
+}
+
+.footer-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.logo-wrapper {
+  cursor: pointer;
+}
+
+.logo-wrapper img {
+  height: 50px;
+  transition: filter 0.3s ease;
+}
+
+.logo-wrapper:hover img {
+  filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(2250%) hue-rotate(94deg) brightness(97%) contrast(85%);
+}
+
+.top-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: 25px;
+  font-weight: 600;
+}
+
+.top-links a {
+  color: rgb(152, 152, 152);
+  transition: color 0.3s ease;
+}
+
+.top-links a:hover {
+  color: #26d18c;
+}
+
+.footer-media-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+}
+
+.footer-media-icon svg {
+  color: rgb(152, 152, 152);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-media-icon svg:hover {
+  color: #26d18c;
+}
+
+.footer-bottom {
+  display: flex;
+  gap: 34px;
+  justify-content: space-between;
+}
+
+.footer-bottom .CA {
+  font-size: 18px;
+  word-wrap: break-word;
+}
+
+.footer-bottom .CA span {
+  color: #26d18c;
+}
+
+.footer-bottom .copyright {
+  color: gray;
+}
+
+
+@media (max-width: 963px) {
+  .footer {
+    padding: 50px;
+  }
+  
+  .top-logos {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .top-links {
+    order: 1;
+    flex-wrap: wrap; 
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .logo-wrapper {
+    order: 2;
+  }
+
+  .footer-media-icon {
+    order: 3;
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 19px;
+    text-align: center;
+  }
+}

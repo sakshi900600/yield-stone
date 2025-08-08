@@ -1,0 +1,54 @@
+.hero-container {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    background-image: url('/HeroAssets/star_bg.avif');
+    background-size: cover;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.gradient-bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Adjusted to 50% of the width */
+    height: 100%;
+    background-image: url('/HeroAssets/gradient_bg.svg');
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    z-index: 1; /* On top of the star_bg */
+}
+
+.green-rectangle-layer {
+    position: absolute;
+    top: 0;
+    left: 270px;
+    width: 345px;
+    height: 110px;
+    background-image: url('/HeroAssets/green_rectangle.svg');
+    background-size: contain; /* Changed to contain to ensure full visibility of the three lines */
+    /* background-position: top center; */
+    background-repeat: no-repeat;
+    z-index: 20; /* On top of the gradient */
+    pointer-events: none; /* Allows clicks to pass through to the content below */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3; /* Main content on top of everything */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    max-width: 90%;
+    /* You can add initial styles for the content here */
+}

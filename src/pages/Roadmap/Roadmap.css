@@ -1,0 +1,266 @@
+
+/* Overall container for header, roadmap section, and button */
+.roadmap-overall-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+/* Wrapper for ModelHeader to control spacing below it */
+.roadmap-header-wrapper {
+  width: 100%; /* Ensure it takes full width for header alignment */
+  text-align: center; /* Center the header content if it's not already centered */
+}
+
+/* Wrapper for the button to center it */
+.roadmap-button-wrapper {
+  margin-bottom: 60px; 
+}
+
+/* Styling for the button text color */
+/* Assuming the Button component renders a <button> tag or similar, target its text */
+.roadmap-button-wrapper button {
+  color: black !important; /* Change button text color to black */
+  /* If the button has a specific background, ensure it contrasts with black text */
+}
+
+
+/* New CSS for the animation structure */
+.roadmap-section {
+  /* Height will be dynamically set by GSAP for large screens, auto for small */
+  position: relative;
+  overflow: hidden;
+  background: transparent; /* Make background transparent as it's handled by overall-container */
+  margin-top: 0; /* Ensure no extra margin from previous elements */
+}
+
+/* Default styles for horizontal scroll (large screens) */
+.horizontal-scroll-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-left: calc(50vw - 706.5px); /* Adjust based on card width and desired initial view */
+  box-sizing: border-box;
+  padding: 0 3rem;
+}
+
+.roadmap-container {
+  display: flex;
+  flex-wrap: nowrap; /* Crucial for horizontal scroll */
+  gap: 19px;
+  padding: 3rem 1rem;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: fit-content; /* Allows the container to grow to fit all cards horizontally */
+}
+
+/* Existing CSS for roadmap-card - UNCHANGED */
+.roadmap-card {
+  position: relative;
+  background: radial-gradient(
+    circle at top,
+    #1c1c2b 10%,
+    #0a0a1a 100%
+  );
+  border-radius: 30px;
+  padding: 50px;
+  width: 100%;
+  max-width: 500px; /* Important for consistent card width */
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  border: 1.6px solid rgba(233, 230, 230, 0.05);
+  overflow: hidden;
+  box-sizing: border-box;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0; /* Ensure cards don't shrink when flex-wrap: nowrap is applied */
+  transition: box-shadow 0.5s ease-out; /* Smooth transition for box-shadow */
+}
+
+/* === GLOWING BORDER EFFECT === */
+.roadmap-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  /* border-radius: 30px; */
+  pointer-events: none;
+  opacity: 0; /* Initially hidden */
+  z-index: 0;
+  
+  -webkit-mask-image: radial-gradient(
+    ellipse at 50% 0, 
+    rgb(39, 214, 144) 10%,  
+    rgba(39, 214, 144, 0.1) 50%, 
+    transparent 90% 
+  );
+  mask-image: radial-gradient(
+    ellipse at 50% 0, 
+    rgb(39, 214, 144) 10%,  
+    rgba(39, 214, 144, 0.1) 50%, 
+    transparent 90% 
+  );
+  background: rgb(39, 214, 144); 
+  transition: opacity 0.3s ease-out; 
+}
+
+/* === Inner content layer stays above border mask === */
+.roadmap-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.roadmap-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.roadmap-icon {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.phase-capsule {
+  background: radial-gradient(
+    circle at top,
+    #2a2a41 20%,
+    rgb(30 28 47) 100%
+  );
+  padding: 11px 38px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Default white border */
+  transition: color 0.5s ease-out, border-color 0.5s ease-out; /* Smooth transition for color and border */
+}
+
+/* Active state for the capsule */
+.phase-capsule.is-active {
+  color: #27d690; /* Green text */
+  border-color: rgba(39, 214, 144, 0.6); /* Green border with less opacity */
+}
+
+.roadmap-middle h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  line-height: 1.4;
+  text-align: flex-start;
+  color: white; /* Default color */
+  transition: color 0.5s ease-out; /* Smooth transition for color */
+}
+
+.roadmap-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.roadmap-bottom ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 1rem;
+  margin: 0;
+  width: 100%;
+  margin-left: 0;
+  list-style-position: inside;
+}
+
+.roadmap-bottom li {
+  list-style: disc;
+  font-size: 1.02rem;
+  color: #c3c3c3;
+  line-height: 1.6;
+}
+
+/* Class to apply when card is active/in view */
+.roadmap-card.is-active::before {
+  opacity: 0.1; 
+}
+
+
+
+/* === Responsive Breakpoints === */
+@media (max-width: 1158px) {
+  /* Reset horizontal scroll wrapper styles for smaller screens */
+  .horizontal-scroll-wrapper {
+    position: relative; /* No longer sticky */
+    top: auto;
+    height: auto; /* Revert to natural height */
+    width: 100%; /* Take full width */
+    overflow: visible; /* Allow content to flow normally */
+    padding-left: 0; /* Remove horizontal offset */
+    display: block; /* Revert to block display */
+  }
+
+  /* Roadmap container reverts to column layout for smaller screens */
+  .roadmap-container {
+    flex-direction: column; /* Stack cards vertically */
+    flex-wrap: wrap; /* Allow wrapping again */
+    width: 100%; /* Take full width */
+    justify-content: center; /* Center cards horizontally */
+    align-items: center; /* Center cards horizontally */
+    padding: 2.5rem 1rem; /* Adjust padding as needed for vertical layout */
+  }
+
+  .roadmap-card {
+    width: 100%;
+    max-width: 90vw; /* Cards will take up most of the width */
+    padding: 40px 30px;
+    flex-shrink: 1; /* Allow cards to shrink if necessary */
+  }
+
+  .roadmap-middle h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .roadmap-card {
+    padding: 36px 24px;
+  }
+
+  .roadmap-middle h1 {
+    font-size: 1.4rem;
+  }
+
+  .phase-capsule {
+    font-size: 12px;
+    padding: 6px 20px;
+  }
+
+  .roadmap-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .roadmap-card {
+    padding: 30px 20px;
+  }
+
+  .roadmap-middle h1 {
+    font-size: 1.2rem;
+  }
+
+  .roadmap-bottom li {
+    font-size: 0.92rem;
+  }
+}

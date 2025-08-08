@@ -1,0 +1,396 @@
+:root {
+  --hover-green: #26d18c;
+  --border-default: rgba(74, 74, 74, 0.5);
+  --transition-smooth: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Main container for the about section */
+.about-section {
+  position: relative;
+  overflow: hidden;
+  margin: 40px 0;
+}
+
+/* --- New Section Styles --- */
+.new-section-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ensure background images are clipped */
+}
+
+.new-section-bg-02 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px; 
+  height: 320px; 
+  /* background-image: url('/numbers/two.svg');  */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1; /* Make it subtle */
+  z-index: 10;
+  
+}
+
+.new-section-corner-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px; /* Adjust size as needed */
+  height: auto;
+  z-index: 1;
+}
+
+.new-section-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px; /* Max width for content alignment */
+  position: relative;
+  z-index: 2; /* Ensure content is above background images */
+  gap: 50px; /* Space between left and right divs */
+  align-items: flex-start;
+}
+
+.new-section-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Push content to the bottom */
+  padding-right: 20px; /* Some padding for text */
+  position: relative;
+}
+
+.new-section-left .about-us-heading {
+  color: #fff; /* Green color for 'ABOUT US' */
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  letter-spacing: 12px;
+  font-family: 'Plus Jakarta Sans', Tahoma, sans-serif;
+}
+
+.new-section-left .yieldstone-heading {
+  color: #ffffff;
+  font-size: 3.5rem; /* Adjust font size as needed */
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 60px;
+  font-family: 'Plus Jakarta Sans', Tahoma, sans-serif;
+
+}
+
+.new-section-left .yieldstone-heading span{
+    color: #26d18c;
+}
+
+.new-section-left-bottom-img {
+  width: 100%; /* Make image fill the width of its container */
+  height: auto;
+  display: block;/* Push image to the bottom */
+  position: absolute; /* Allows it to sit at the bottom without extra space */
+  left: 30px; 
+  bottom: -70px;
+  width: calc(100% + 20px); /* Extend width to cover the negative left margin */
+  object-fit: cover; /* Ensures the image covers the area, might crop */
+  transform: translateY(0); /* Ensure no vertical offset */
+}
+
+.new-section-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  color: #cccccc;
+  padding-left: 40px; /* Some padding for text */
+}
+
+.new-section-right h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-family: 'Plus Jakarta Sans', Tahoma, sans-serif;
+}
+
+.new-section-right p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-family: SF Pro Display, Arial, sans-serif;
+}
+
+/* --- Existing About Section Styles (from previous code) --- */
+.about-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', Tahoma, sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+.about-card {
+  flex: 1 1 33.33%;
+  min-width: 300px;
+  height: 330px;
+  border: 1px solid var(--border-default);
+  background-image: radial-gradient(circle at 50% 0, #ffffff14, #ffffff0a 70%, #fff0);
+  padding: 49px 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  overflow: hidden;
+  position: relative;
+  transition: var(--transition-smooth);
+  z-index: 2;
+}
+
+/* Header and Title */
+.about-header-top {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.about-header-top img {
+  height: 80px;
+  width: 80px;
+}
+
+.about-header-top h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+/* Text */
+.about-details p {
+  font-size: 17px;
+  font-weight: 400;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+  font-family: SF Pro Display, Arial, sans-serif;
+}
+
+/* Hover Effects */
+.about-card:hover {
+  cursor: pointer;
+}
+
+.about-card:hover .about-header-top h1 {
+  color: var(--hover-green);
+}
+
+/* Green overlay on hover (top-left) */
+.about-hover-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(#27d69000, #27d6902e);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: var(--transition-smooth);
+  z-index: 1;
+}
+
+/* Bottom green gradient image */
+.about-hover-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: var(--transition-smooth);
+  z-index: 1;
+}
+
+.about-hover-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* On hover show both */
+.about-card:hover .about-hover-bg,
+.about-card:hover .about-hover-image {
+  opacity: 0.6;
+}
+
+/* Corners */
+.about-corners {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  z-index: 2;
+  transition: var(--transition-smooth);
+}
+
+.about-top-left {
+  top: 0;
+  left: 0;
+  border-top: 4px solid #565462;
+  border-left: 4px solid #565462;
+}
+.about-top-right {
+  top: 0;
+  right: 0;
+  border-top: 4px solid #565462;
+  border-right: 4px solid #565462;
+}
+.about-bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom: 4px solid #565462;
+  border-left: 4px solid #565462;
+}
+.about-bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom: 4px solid #565462;
+  border-right: 4px solid #565462;
+}
+
+/* Hover corners turn green */
+.about-card:hover .about-top-left {
+  border-top-color: var(--hover-green);
+  border-left-color: var(--hover-green);
+}
+.about-card:hover .about-top-right {
+  border-top-color: var(--hover-green);
+  border-right-color: var(--hover-green);
+}
+.about-card:hover .about-bottom-left {
+  border-bottom-color: var(--hover-green);
+  border-left-color: var(--hover-green);
+}
+.about-card:hover .about-bottom-right {
+  border-bottom-color: var(--hover-green);
+  border-right-color: var(--hover-green);
+}
+
+/* Topper Image Positioning (from previous implementation, kept for reference if needed) */
+/* This is likely no longer needed if the new section is placed above it */
+.about-topper {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: calc(100% - 100px);
+  max-width: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: none; /* Hidden by default now that new section is above */
+}
+
+.about-topper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Bottom Arrow Positioning */
+.about-bottom-arrow {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.about-bottom-arrow img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* Responsive: stack vertically */
+@media (max-width: 993px) {
+  .about-card-container {
+    flex-direction: column;
+  }
+
+  .about-card {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  /* Hide the topper image on smaller devices */
+  .about-topper {
+    display: none;
+  }
+
+  /* New Section Responsive Adjustments */
+  .new-section-container {
+    padding: 50px 20px; 
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .new-section-content {
+    /* flex-direction: column; */
+    gap: 30px;
+  }
+
+  .new-section-right {
+    display: none; /* Hide right div on small screens */
+  }
+
+  .new-section-left {
+    padding-right: 0;
+    text-align: center; /* Center text on small screens */
+    align-items: center; /* Center items in flex column */
+  }
+
+  .new-section-left .yieldstone-heading {
+    font-size: 2.5rem; /* Adjust font size for smaller screens */
+  }
+
+  .new-section-left-bottom-img {
+    width: 100%; 
+    left: auto; 
+    transform: none; 
+  }
+
+  .new-section-corner-img {
+    width: 100px; /* Adjust size for smaller screens */
+  }
+
+  .new-section-left-bottom-img {
+    display: none; 
+  }
+}
+
+/* Adjustments for very small screens */
+@media (max-width: 600px) {
+
+    .about-card-container {
+    padding: 23px;
+    gap: 12px;
+  }
+  .new-section-left .yieldstone-heading {
+    font-size: 2rem;
+  }
+  
+
+  .about-bottom-arrow {
+    padding: 0 45px;
+  }
+
+}
+
+
+@media (max-width: 434px) {
+    .new-section-bg-02{
+        height: 250px;
+        width: 250px;
+    }
+}

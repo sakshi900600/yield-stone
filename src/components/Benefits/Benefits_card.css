@@ -1,0 +1,202 @@
+:root {
+  --primary-bg: #060318;
+  --hover-color: #26d18c;
+  --text-color: white;
+  --border-color: rgba(74, 74, 74, 0.5);
+  --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+
+.benefits-heading {
+  width: 100%;
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin-bottom: 0.56rem;
+  color: white;
+  font-family: 'Plus Jakarta Sans', Tahoma, sans-serif;
+  letter-spacing: 1px;
+  position: relative;
+  padding: 18px 0;
+}
+
+
+.benefits-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 26px 51px;
+  color: var(--text-color);
+  font-family: 'Plus Jakarta Sans', Tahoma, sans-serif;
+  min-height: 50vh;
+  width: 100%;
+  position: relative;
+}
+
+.benefits-container::before {
+  content: "";
+  position: absolute; /* 🔁 changed from fixed */
+  top: 90px;
+  left: 0;
+  width: 100%;
+  height: 85%;
+  background-image: url('/HeroAssets/gradient_bg.svg');
+  background-repeat: no-repeat;
+  background-size: 180%;
+  background-position: center center;
+  z-index: -1;
+  opacity: 1;
+
+  /* Masked edges */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-size: 100%;
+  mask-size: 100%;
+}
+
+
+.benefit-card {
+  flex: 0 0 23%;
+  min-width: 250px;
+  height: auto;
+  border-top: 0.4px solid var(--border-color);
+  border-bottom: 0.4px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 9px;
+  transition: var(--transition);
+  background-color: #0f1926;
+}
+
+
+.benefit-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px; /* adjust how much area it covers */
+  background-image: radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.8392156863), rgba(255, 255, 255, 0.168627451) 66%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  opacity: 0.07; /* 🔥 control opacity */
+  z-index: 0;
+   filter: blur(9px);
+   transition: all 0.3s ease-in-out;
+}
+
+
+
+.card-content-container {
+  overflow: hidden;
+  border-radius: 8px;
+  height: 100%;
+}
+
+/* Icon Styles */
+.benefit-card .card-icon {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  transition: var(--transition);
+}
+
+.benefit-card .card-icon img {
+  height: 63px;
+  width: 60px;
+  display: block;
+  object-fit: contain;
+}
+
+/* Content Styles */
+.card-content {
+  padding: 14px;
+  padding-top: 49px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.card-content h3 {
+  font-size: 17px;
+  font-weight: 600;
+  padding-bottom: 11px;
+  transition: var(--transition);
+}
+
+.card-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: SF Pro Display, Arial, sans-serif;
+}
+
+/* Blur Overlay */
+.blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(39, 214, 144, 0.1);
+  backdrop-filter: blur(12.5px);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 5;
+}
+
+/* Hover Image */
+.card-hover-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 15;
+  width: 100%;
+  transition: var(--transition);
+  opacity: 0;
+}
+
+.card-hover-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hover Effects */
+.benefit-card:hover {
+  cursor: pointer;
+}
+
+.benefit-card:hover h3 {
+  color: var(--hover-color);
+}
+
+.benefit-card:hover .card-icon {
+  border-color: var(--hover-color);
+}
+
+.benefit-card:hover .card-hover-image {
+  opacity: 0.8;
+}
+
+.benefit-card:hover .blur-overlay {
+  opacity: 0.4;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 993px){
+    .benefits-container{
+        flex-direction: column;
+        gap: 55px;
+        
+    }
+    .benefit-card{
+        width: 100%;
+    }
+}

@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: #060318;
+  color: white;
+  font-family: 'Plus Jakarta Sans', Tahoma, sans-serif;
+
+}

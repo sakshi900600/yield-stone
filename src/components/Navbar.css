@@ -1,0 +1,211 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 20vh;
+  padding: 0 40px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+  z-index: 1000;
+  background: transparent;
+}
+
+/* Hide on scroll down */
+.navbar.hide {
+  transform: translateY(-100%);
+}
+
+/* Show on scroll up */
+.navbar.show {
+  transform: translateY(0);
+}
+
+/* Add background and shadow when scrolled */
+.navbar.scrolled {
+  /* background: #ffffff14; */
+  backdrop-filter: blur(40px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+#nav-logo {
+  width: 260px;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: gap 0.2s ease;
+}
+
+/* Hover effect ONLY when NOT clicked */
+.menu:not(.clicked):hover {
+  gap: 13px;
+}
+
+.menu-line {
+  background: white;
+  padding: 0.7px 24px;
+  border-radius: 2px;
+  transition: transform 0.5s ease, scale 0.3s ease;
+}
+
+/* On Click - CROSS Effect */
+.menu.clicked .menu-line-1 {
+  transform: rotate(360deg) translateY(9px) rotate(45deg);
+}
+
+.menu.clicked .menu-line-2 {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+
+
+
+/* sidebar ----------------------------- */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100%;
+  width: 70%;
+  max-width: 400px;
+  /* background: #ffffff14; */
+  padding: 130px 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 999;
+  transition: right 0.4s ease-in-out;
+  backdrop-filter: blur(30px);
+}
+
+.sidebar.visible {
+  right: 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+
+/* .nav-links a {
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+  font-family: 'Plus Jakarta Sans', Tahoma, sans-serif;
+  font-weight: 500;
+  transition: all .4s cubic-bezier(.645, .045, .355, 1);
+}
+
+.nav-links a:hover {
+  transition:  1.5s ease-in-out;
+  font-weight: bold;
+} */
+
+
+
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  color: white;
+  font-size: 2rem;
+  font-family: 'Plus Jakarta Sans', Tahoma, sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+  /* transform: translateX(1px); subtle slide to the right */
+  /* opacity: 1; slight fade */
+  font-weight: bold;
+  /* font-size: 2.07rem; */
+  transition: all .3s ease-in-out;
+}
+
+
+
+
+.sidebar-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+}
+
+
+.sidebar-btn {
+  background: #00e185;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 16px 24px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 2px;
+}
+
+.sidebar-btn:hover .sidebar-btn::after {
+  content: '→';
+  font-size: 20px;
+}
+
+
+.sidebar-socials{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 9px;
+}
+
+
+.sidebar-socials a{
+    height: 25px;
+    width: 25px;
+}
+
+.sidebar-socials a svg{
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+.sidebar-socials a svg:hover{
+    color: #00e185;
+    transition: all .4s cubic-bezier(.645, .045, .355, 1);
+}
+
+
+
+
+
+
+
+@media (max-width: 1081px){
+    .navbar{
+        height: 12vh;
+    }
+}
