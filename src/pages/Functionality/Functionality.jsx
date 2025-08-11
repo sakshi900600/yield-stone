@@ -147,7 +147,8 @@ const Functionality = () => {
             <strong>Stability and Upside:</strong> Stable revenue from real assets, combined with <br /> high-growth tech markets.
         </p>
 
-        <Button text={'View Whitepaper'} className="functionality-btn" />
+        <Button text={'View Whitepaper'} className="functionality-btn" onClick={() => window.open('https://yieldstone.gitbook.io/yieldstone-whitepaper', '_blank')} />
+
         </div>
 
 

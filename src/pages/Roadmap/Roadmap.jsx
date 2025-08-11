@@ -319,7 +319,7 @@ const Roadmap = () => {
 
       {/* Wrapper for the Button to center it */}
       <div className="roadmap-button-wrapper">
-        <Button text={'View Full Roadmap'} />
+        <Button  text={'View Full Roadmap'} />
       </div>
       
     </div>

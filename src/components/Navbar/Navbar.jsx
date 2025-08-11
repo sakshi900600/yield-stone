@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
-import Button from './Button/Button';
+import Button from '../Button/Button';
 
 const navLinkItems = [
   'Home',
@@ -101,7 +101,7 @@ const Navbar = () => {
             </ul>
 
             <div className="sidebar-bottom">
-              <Button className="nav-btn" text={'View Whitepaper'}/>
+              <Button onClick={() => window.open('https://yieldstone.gitbook.io/yieldstone-whitepaper', '_blank')} className="nav-btn" text={'View Whitepaper'}/>
 
               <div className="sidebar-socials">
                 {[0, 1, 2].map((_, i) => (

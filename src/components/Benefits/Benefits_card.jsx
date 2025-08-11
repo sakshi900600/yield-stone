@@ -6,28 +6,28 @@ const Benefits_card = () => {
   const cardData = [
     {
       id: 1,
-      icon: "benefits1.avif",
+      icon: "/benefits/benefits1.avif",
       title: "Agentic AI Analytics",
       description: "Drive asset selection and dynamic rebalancing that outperform human-only strategies.",
       hoverImage: "hoverImage.avif"
     },
     {
       id: 2,
-      icon: "benefits2.avif",
+      icon: "/benefits/benefits2.avif",
       title: "On-chain Tokenization",
       description: "Converts real-world properties into tradeable, compliance-ready digital assets.",
       hoverImage: "hoverImage.avif"
     },
     {
       id: 3,
-      icon: "benefits3.avif",
+      icon: "/benefits/benefits3.avif",
       title: "Decentralized GPU Infrastructure",
       description: "Eliminates cloud bottlenecks, lowers AI compute costs, deepens network sovereignty and unlocks supplementary income streams.",
       hoverImage: "hoverImage.avif"
     },
     {
       id: 4,
-      icon: "benefits4.avif",
+      icon: "/benefits/benefits4.avif",
       title: "$YIELD Governance & Incentives",
       description: "Deliver community-driven investment decisions, with buy-back-and-burn deflationary mechanics.",
       hoverImage: "hoverImage.avif"

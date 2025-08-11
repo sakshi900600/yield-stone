@@ -1,7 +1,7 @@
 import React from "react";
 import "./Usecases.css";
-import ModelHeader from "../Model_header/Header";
-import Button from "../Button/Button";
+import ModelHeader from "../../components/Model_header/Header";
+import Button from "../../components/Button/Button";
 
 const Usecases = () => {
   const usecaseData = [
@@ -57,7 +57,7 @@ const Usecases = () => {
 
     </div>
 
-      <Button text={'Read Documents'}/>
+      <Button onClick={() => window.open('https://yieldstone.gitbook.io/yieldstone-whitepaper', '_blank')} text={'Read Documents'}/>
 
 
     </div>

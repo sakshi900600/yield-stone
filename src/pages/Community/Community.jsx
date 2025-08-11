@@ -1,7 +1,7 @@
 import React from 'react';
-import "./Community_card.css";
+import "./Community.css";
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
-import ModelHeader from '../Model_header/Header';
+import ModelHeader from '../../components/Model_header/Header';
 
 const Community_card = () => {
   const cardData = [
@@ -9,17 +9,19 @@ const Community_card = () => {
       id: 1,
       title: "Telegram",
       description: "Join our Telegram group to connect with a dynamic community of investors and the YieldStone team.",
-      icon: "telegram.svg",
-      mainImage: "telegram_img.avif",
+      icon: "/community/telegram.svg",
+      mainImage: "/community/telegram_img.avif",
       hoverImage: "hoverImage.avif",
+      links: "https://t.me/Yieldstoneai",
     },
     {
       id: 2,
       title: "Twitter",
       description: "Our Twitter feed is a vital channel for real-time updates, engaging content, & direct interactions.",
-      icon: "x.svg",
-      mainImage: "x_img.avif",
+      icon: "/community/x.svg",
+      mainImage: "/community/x_img.avif",
       hoverImage: "hoverImage.avif",
+      links: "https://x.com/yieldstone",
     }
   ];
 
@@ -35,7 +37,7 @@ const Community_card = () => {
 
       <div className="community-container">
         {cardData.map((card) => (
-          <div className='community-card' key={card.id}>
+          <div onClick={() => window.open(`${card.links}`, '_blank')} className='community-card' key={card.id}>
             <div className="card-top">
               <img src={card.icon} alt={`${card.title} icon`} className="icon" />
 
@@ -46,7 +48,7 @@ const Community_card = () => {
                 </div>
 
                 <div className="community-text-button">
-                  <img src="community_btn_outline.svg" alt="" className="outline-img" />
+                  <img src="/community/community_btn_outline.svg" alt="" className="outline-img" />
                   <div className="arrow-icon">
                     <ArrowUpRight className='arrow' size={24} />
                     <ArrowRight className='arrow-right' size={24} />
