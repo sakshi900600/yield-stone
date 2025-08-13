@@ -57,7 +57,8 @@ const Technology = () => {
           </ul>
 
           <div className="gpu-card-button">
-            <Button text={"View Full Roadmap"} />
+            <Button target="_blank"
+ href="https://yieldstone.gitbook.io/yieldstone-whitepaper" text={"View Full Roadmap"} />
           </div>
 
         </div>

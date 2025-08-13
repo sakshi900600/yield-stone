@@ -57,7 +57,7 @@ const Usecases = () => {
 
     </div>
 
-      <Button onClick={() => window.open('https://yieldstone.gitbook.io/yieldstone-whitepaper', '_blank')} text={'Read Documents'}/>
+      <Button href="https://yieldstone.gitbook.io/yieldstone-whitepaper" target="_blank" text={'Read Documents'}/>
 
 
     </div>

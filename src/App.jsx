@@ -9,16 +9,20 @@ import Technology from './pages/Technology/Technology'
 import AiAgentsCard from './pages/Technology/Technology'
 import FunctionalityCard from './pages/Functionality/Functionality'
 import LiquidityCard from './pages/Functionality/Functionality'
-import FeatureSlider from './components/FeatureScroll/HomeAfter'
+import FeatureSlider from './components/FeatureSlider/HomeAfter'
 import Benefits_card from './components/Benefits/Benefits_card'
 import Card from './components/Lotte-Animation/Card'
 import Navbar from './components/Navbar/Navbar'
 
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Usecases from './pages/Usecase/Usecases'
+import Roadmap_page from './components/Roadmap/Roadmap_page'
+import Home from './Home'
 
 
 const App = () => {
@@ -44,13 +48,9 @@ const App = () => {
     <DaoSection />
    <Usecases />
    <Community_card />
-    <Roadmap />
+    {/* <Roadmap /> */}
 
     <Footer />
-
-    {/* <Roadmap /> */}
-   
-    {/* <LiquidityCard /> */}
 
 
     {/* testing lottie animation ----------------------- */}
@@ -58,7 +58,14 @@ const App = () => {
     
 
       
-      
+
+      <BrowserRouter>
+      <Routes>
+        <Route path="/roadmap" element={<Roadmap_page />} />
+      </Routes>
+    </BrowserRouter>
+
+      {/* <Roadmap_page /> */}
 
       
 

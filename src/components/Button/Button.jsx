@@ -4,7 +4,7 @@ import './Button.css'; // Import the separate CSS file
 
 // This is a standalone, reusable component for the animated button.
 // It accepts a 'text' prop for the button's label and an optional 'href' prop for the link.
-export default function Button({ text, href = "https://yieldstone.gitbook.io/yieldstone-whitepaper" }) {
+export default function Button({ text, href,target }) {
   // Variants for the button's scale animation.
   const buttonVariants = {
     initial: { scale: 1 },
@@ -54,7 +54,7 @@ export default function Button({ text, href = "https://yieldstone.gitbook.io/yie
   return (
     <motion.a
       href={href}
-      target="_blank"
+      target={target}
       rel="noopener noreferrer"
       className="animated-button"
       variants={buttonVariants}

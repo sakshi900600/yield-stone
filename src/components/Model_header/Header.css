@@ -83,3 +83,41 @@
     letter-spacing: 4px;
   }
 }
+
+
+
+
+
+
+/* Animate ONLY opacity + translate (composes with existing transform) */
+.model-number-img.reveal-up-img,
+.model-title.reveal-up-title {
+  opacity: 0;
+  translate: 0 16px; /* small bottom->up travel; doesn't override transform */
+  will-change: opacity, translate;
+}
+
+.model-header.in-view .model-number-img.reveal-up-img {
+  animation: revealUp 600ms ease-out forwards;
+}
+
+.model-header.in-view .model-title.reveal-up-title {
+  animation: revealUp 600ms ease-out 200ms forwards; /* slight delay after image */
+}
+
+@keyframes revealUp {
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* Accessibility: disable motion if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .model-number-img.reveal-up-img,
+  .model-title.reveal-up-title {
+    opacity: 1 !important;
+    translate: 0 0 !important;
+    animation: none !important;
+  }
+}

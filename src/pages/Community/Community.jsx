@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import "./Community.css";
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import ModelHeader from '../../components/Model_header/Header';
@@ -36,8 +37,16 @@ const Community_card = () => {
       </div>
 
       <div className="community-container">
-        {cardData.map((card) => (
-          <div onClick={() => window.open(`${card.links}`, '_blank')} className='community-card' key={card.id}>
+        {cardData.map((card, index) => (
+          <motion.div
+            key={card.id}
+            onClick={() => window.open(`${card.links}`, '_blank')}
+            className="community-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <div className="card-top">
               <img src={card.icon} alt={`${card.title} icon`} className="icon" />
 
@@ -61,7 +70,7 @@ const Community_card = () => {
               <img className='cb-img' src={card.mainImage} alt={`${card.title} visual`} />
               <img className='cb-hover' src={card.hoverImage} alt="hover effect" />
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </>

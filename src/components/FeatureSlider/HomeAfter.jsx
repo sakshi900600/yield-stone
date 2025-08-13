@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import "./HomeAfter.css";
 
 const features = [
@@ -43,7 +44,13 @@ const FeatureSlider = ({ stripePosition = "top" }) => {
   };
 
   return (
-    <div className="feature-slider-container">
+    <motion.div
+      className="feature-slider-container"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       {stripePosition === "top" && (
         <div className="stripe">
           <div
@@ -98,9 +105,8 @@ const FeatureSlider = ({ stripePosition = "top" }) => {
           />
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
-
 
 export default FeatureSlider;
