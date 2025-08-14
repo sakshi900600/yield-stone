@@ -13,3 +13,7 @@ body{
   font-family: 'Plus Jakarta Sans', Tahoma, sans-serif;
 
 }
+
+html {
+  scroll-behavior: smooth;
+}

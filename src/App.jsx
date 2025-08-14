@@ -1,7 +1,6 @@
 import React from 'react'
 import Community_card from "./pages/Community/Community"
 import Footer from './components/Footer/Footer'
-import Roadmap from './pages/Phases/Roadmap'
 import DaoSection from './pages/Model/DaoSection'
 import TeamSection from './pages/Team/Team'
 import About from './pages/About/About'
@@ -23,6 +22,7 @@ import 'aos/dist/aos.css';
 import Usecases from './pages/Usecase/Usecases'
 import Roadmap_page from './components/Roadmap/Roadmap_page'
 import Home from './Home'
+import Phase from './pages/Phases/Phases'
 
 
 const App = () => {
@@ -48,7 +48,7 @@ const App = () => {
     <DaoSection />
    <Usecases />
    <Community_card />
-    {/* <Roadmap /> */}
+   <Phase />
 
     <Footer />
 

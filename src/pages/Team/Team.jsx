@@ -36,7 +36,7 @@ const Team = () => {
   ];
 
   return (
-    <div className="team-card-container">
+    <div id='team' className="team-card-container">
       {members.map((member, index) => (
         <motion.div
           className="team-card"

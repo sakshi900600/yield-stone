@@ -65,7 +65,7 @@ const Navbar = () => {
           scrolled ? "scrolled" : ""
         }`}
       >
-        <a href="#">
+        <a href="/">
           <img id="nav-logo" src="/logo.avif" alt="logo" />
         </a>
         <div
@@ -101,7 +101,9 @@ const Navbar = () => {
                   exit="closed"
                   variants={itemVariants}
                 >
-                  <a href="#">{item}</a>
+                  <a href={`#${item}`} onClick={() => setIsClicked(false)}>
+                    {item}
+                  </a>
                 </motion.li>
               ))}
             </ul>
@@ -109,7 +111,6 @@ const Navbar = () => {
             <div className="sidebar-bottom">
               <Button
                 href="https://yieldstone.gitbook.io/yieldstone-whitepaper"
-                  
                 className="nav-btn"
                 text={"View Whitepaper"}
               />
@@ -135,7 +136,6 @@ const Navbar = () => {
                       variants={itemVariants}
                     >
                       {i === 0 && (
-                        // Twitter/X SVG
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="100%"
@@ -149,7 +149,6 @@ const Navbar = () => {
                         </svg>
                       )}
                       {i === 1 && (
-                        // LinkedIn SVG
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="100%"
@@ -163,7 +162,6 @@ const Navbar = () => {
                         </svg>
                       )}
                       {i === 2 && (
-                        // Telegram SVG
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="100%"
