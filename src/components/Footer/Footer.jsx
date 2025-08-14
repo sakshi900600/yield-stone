@@ -1,7 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './Footer.css';
 
-// Custom SVG Icon Components (unchanged)
+// Custom SVG Icon Components
 const XIcon = ({ size = 28, className = '' }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 26 24" fill="none" className={`vectors-wrapper-3 is-footer ${className}`}>
     <path d="M20.4766 0.5H24.4634L15.7533 10.2425L26 23.5H17.977L11.6929 15.4595L4.50267 23.5H0.513413L9.82969 13.0793L0 0.5H8.22676L13.907 7.84939L20.4766 0.5ZM19.0772 21.1646H21.2865L7.02637 2.71271H4.65573L19.0772 21.1646Z" fill="currentColor"></path>
@@ -23,43 +24,43 @@ const SendIcon = ({ size = 28, className = '' }) => (
 // Footer Component
 function Footer() {
   return (
-    <>
-      <div className="footer">
-        <div className="footer-top">
+    <motion.div
+      className="footer"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      viewport={{ once: true }}
+    >
+      <div className="footer-top">
+        <div className="top-logos">
+          <div className="logo-wrapper">
+            <img src="logo.avif" alt="Company Logo" />
+          </div>
 
-          {/* New wrapper for the logo and social icons */}
-          <div className="top-logos">
-            <div className="logo-wrapper">
-              <img src="logo.avif" alt="Company Logo" />
-            </div>
+          <div className="top-links">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Features</a>
+            <a href="#">Team</a>
+            <a href="#">Tokenomics</a>
+            <a href="#">Roadmap</a>
+          </div>
 
-            {/* This is the container for the navigation links */}
-            <div className="top-links">
-              <a href="#">Home</a>
-              <a href="#">About Us</a>
-              <a href="#">Features</a>
-              <a href="#">Team</a>
-              <a href="#">Tokenomics</a>
-              <a href="#">Roadmap</a>
-            </div>
-
-            {/* This is the container for the social icons */}
-            <div className="footer-media-icon">
-              <XIcon className='media-icons'/>
-              <MIcon className='media-icons'/>
-              <SendIcon className='media-icons'/>
-            </div>
+          <div className="footer-media-icon">
+            <XIcon className='media-icons'/>
+            <MIcon className='media-icons'/>
+            <SendIcon className='media-icons'/>
           </div>
         </div>
-
-        <div className="footer-bottom">
-          <p className="CA">
-            CA: <span>0x4a35feae3378298d65F123576C61ACD62b52A920</span>
-          </p>
-          <p className="copyright">© 2025 YieldStone. All rights reserved.</p>
-        </div>
       </div>
-    </>
+
+      <div className="footer-bottom">
+        <p className="CA">
+          CA: <span>0x4a35feae3378298d65F123576C61ACD62b52A920</span>
+        </p>
+        <p className="copyright">© 2025 YieldStone. All rights reserved.</p>
+      </div>
+    </motion.div>
   );
 }
 

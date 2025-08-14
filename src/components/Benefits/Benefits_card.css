@@ -194,6 +194,7 @@
     .benefits-container{
         flex-direction: column;
         gap: 55px;
+        padding: 26px 23px;
         
     }
     .benefit-card{

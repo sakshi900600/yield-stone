@@ -1,62 +1,139 @@
-import React from 'react';
-import './About.css';
+import React, { useLayoutEffect, useRef } from "react";
+import "./About.css";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const cardData = [
   {
     id: 1,
-    icon: '/about/about-icon1.avif',
-    title: 'NEXUS Fund',
-    description: 'Fractional, liquid stakes in a diversified portfolio of multifamily properties, short-term rentals, and data-center infrastructure.',
-    hoverImage: 'hoverImage.avif'
+    icon: "/about/about-icon1.avif",
+    title: "NEXUS Fund",
+    description:
+      "Fractional, liquid stakes in a diversified portfolio of multifamily properties, short-term rentals, and data-center infrastructure.",
+    hoverImage: "hoverImage.avif",
   },
   {
     id: 2,
-    icon: '/about/about-icon2.avif',
-    title: 'PropAI',
-    description: 'A suite of agentic AI advisory tools delivering predictive valuations, portfolio optimization, and market-cycle forecasts - powering the NEXUS Fund and available to external subscribers.',
-    hoverImage: 'hoverImage.avif'
+    icon: "/about/about-icon2.avif",
+    title: "PropAI",
+    description:
+      "A suite of agentic AI advisory tools delivering predictive valuations, portfolio optimization, and market-cycle forecasts - powering the NEXUS Fund and available to external subscribers.",
+    hoverImage: "hoverImage.avif",
   },
   {
     id: 3,
-    icon: '/about/about-icon3.avif',
-    title: 'YieldPIN',
-    description: 'A decentralized GPU marketplace powering PropAI while renting idle compute to third parties, unlocking an extra revenue stream for the ecosystem.',
-    hoverImage: 'hoverImage.avif'
-  }
+    icon: "/about/about-icon3.avif",
+    title: "YieldPIN",
+    description:
+      "A decentralized GPU marketplace powering PropAI while renting idle compute to third parties, unlocking an extra revenue stream for the ecosystem.",
+    hoverImage: "hoverImage.avif",
+  },
 ];
 
 const About = () => {
+  const aboutRef = useRef(null);
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      // Animate all sections bottom → up
+      gsap.utils.toArray([
+        ".new-section-left",
+        ".new-section-right",
+        ".new-section-bg-02 img",
+        ".new-section-corner-img",
+      ]).forEach((el) => {
+        gsap.fromTo(
+          el,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // Animate children of each about-card
+      gsap.utils.toArray(".about-card").forEach((card) => {
+        gsap.utils
+          .toArray([
+            card.querySelector(".about-header-top"),
+            card.querySelector(".about-details"),
+            card.querySelector(".about-hover-image"),
+          ])
+          .forEach((child, i) => {
+            gsap.fromTo(
+              child,
+              { y: 40, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                delay: i * 0.15, // slight stagger inside card
+                ease: "power3.out",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top 85%",
+                  toggleActions: "play none none reverse",
+                },
+              }
+            );
+          });
+      });
+    }, aboutRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="about-section">
-
+    <div className="about-section" ref={aboutRef}>
       <div className="new-section-container">
-
         <div className="new-section-bg-02">
-            <img src="/numbers/two.svg" alt="" />
+          <img src="/numbers/two.svg" alt="" />
         </div>
 
-        <img src="/about/about-left-img.svg" alt="Corner Design" className="new-section-corner-img" />
+        <img
+          src="/about/about-left-img.svg"
+          alt="Corner Design"
+          className="new-section-corner-img"
+        />
 
         <div className="new-section-content">
-          {/* Left Div */}
           <div className="new-section-left">
             <p className="about-us-heading">ABOUT US</p>
-            <h1 className="yieldstone-heading"><span>YieldStone </span>AI <br /> Blockchain <br /> Products</h1>
-            <img src="/about/about-topper-img.svg" alt="Bottom Left" className="new-section-left-bottom-img" />
+            <h1 className="yieldstone-heading">
+              <span>YieldStone </span>AI <br /> Blockchain <br /> Products
+            </h1>
+            <img
+              src="/about/about-topper-img.svg"
+              alt="Bottom Left"
+              className="new-section-left-bottom-img"
+            />
           </div>
 
-          {/* Right Div */}
           <div className="new-section-right">
             <h2>Why Yieldstone?</h2>
-            <p>Traditional real-estate funds lock out smaller investors, remain painfully illiquid, and rely on human-only decision making processes.</p>
-            <p>Yieldstone solves these issues by providing the first RWA-tokenized real-estate investment platform powered by agentic AI - unlocking enhanced yields and instant liquidity.</p>
+            <p>
+              Traditional real-estate funds lock out smaller investors, remain
+              painfully illiquid, and rely on human-only decision making
+              processes.
+            </p>
+            <p>
+              Yieldstone solves these issues by providing the first
+              RWA-tokenized real-estate investment platform powered by agentic
+              AI - unlocking enhanced yields and instant liquidity.
+            </p>
           </div>
         </div>
-
       </div>
-
-
-
 
       {/* Card Container */}
       <div className="about-card-container">
@@ -85,7 +162,7 @@ const About = () => {
         ))}
       </div>
 
-      {/* Bottom Arrow */}
+      {/* Bottom Arrow (no animation) */}
       <div className="about-bottom-arrow">
         <img src="/about/about-bottom-arrow.svg" alt="Bottom Arrow" />
       </div>

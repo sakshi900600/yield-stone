@@ -255,6 +255,11 @@
     gap: 24px;
   }
 
+  .gpu-marketplace-card{
+    width: 95%;
+    margin: 0 auto;
+  }
+
 
   .ai-card-wrapper {
     width: 100%;
@@ -284,3 +289,9 @@
 }
 
 
+@media (max-width: 675px) {
+  .gpu-marketplace-card{
+    width: 90%;
+    margin: 0 auto;
+  }
+}

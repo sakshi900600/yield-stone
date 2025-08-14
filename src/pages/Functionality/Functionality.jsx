@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Functionality.css';
 import Button from '../../components/Button/Button';
 import ModelHeader from '../../components/Model_header/Header';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 
 const options = [
@@ -75,28 +77,101 @@ const optionDetails = [
 
 
 
+
+gsap.registerPlugin(ScrollTrigger);
+
+
 const Functionality = () => {
   const [selected, setSelected] = useState(1);
 
+  const containerRef = useRef(null);
+
   const current = optionDetails.find((opt) => opt.id === selected);
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate top info text
+      gsap.from('.functionality-top-info', {
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.functionality-top-info',
+          start: 'top 85%',
+        },
+      });
+
+      // Animate option selector buttons
+      gsap.from('.func-option-select .option', {
+        y: 40,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 0.6,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.func-option-select',
+          start: 'top 85%',
+        },
+      });
+
+      // Animate left and right cards
+      gsap.from('.functionality-left-card', {
+        y: 50,
+        opacity: 0,
+        duration: 0.7,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.functionality-left-card',
+          start: 'top 85%',
+        },
+      });
+
+      gsap.from('.functionality-right-card', {
+        y: 50,
+        opacity: 0,
+        duration: 0.7,
+        delay: 0.15,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.functionality-right-card',
+          start: 'top 85%',
+        },
+      });
+
+      // Animate bottom info text and button
+      gsap.from('.functionality-bottom-info > *', {
+        y: 40,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 0.6,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.functionality-bottom-info',
+          start: 'top 85%',
+        },
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <>
-
+    <div ref={containerRef}>
       {/* model header */}
       <ModelHeader
-        imageSrc="/numbers/four.svg" icon
+        imageSrc="/numbers/four.svg"
+        icon
         label="TOKENOMICS"
         title="YieldStone V2 AI Functionality"
       />
 
-
-      {/*  top text */}
+      {/* top text */}
       <div className="functionality-top-info">
-        <p className="functionality-info-text">Real estate will remain a stable anchor, but now it is complemented by a robust ecosystem of GPU-driven compute resources and advanced AI tools. These multiple dimensions reflect the realities of a rapidly evolving economy where data, infrastructure, and intelligence are as critical as physical property.</p>
+        <p className="functionality-info-text">
+          Real estate will remain a stable anchor, but now it is complemented by a robust ecosystem of GPU-driven compute resources and advanced AI tools. These multiple dimensions reflect the realities of a rapidly evolving economy where data, infrastructure, and intelligence are as critical as physical property.
+        </p>
       </div>
-
 
       {/* Topper Option Selector */}
       <div className="func-option-select">
@@ -112,8 +187,6 @@ const Functionality = () => {
         ))}
       </div>
 
-
-
       {/* Main Content */}
       <div className="functionality-card-container">
         {/* Left Card */}
@@ -128,7 +201,6 @@ const Functionality = () => {
           <div className="text">{current.text2}</div>
         </div>
 
-
         {/* Right Card */}
         <div className="functionality-card functionality-right-card">
           <img src="/functionality/func_img.avif" alt="Illustration" className="main-img" />
@@ -136,24 +208,24 @@ const Functionality = () => {
         </div>
       </div>
 
-
-        {/* Bottom Info Section Below the Cards */}
-        <div className="functionality-bottom-info">
+      {/* Bottom Info Section */}
+      <div className="functionality-bottom-info">
         <p className="functionality-info-text">
-            <strong>Diverse Exposure:</strong> Gain indirect exposure to real estate, DePIN <br /> infrastructure, and AI services through a single token.
-        </p>
-        
-        <p className="functionality-info-text">
-            <strong>Stability and Upside:</strong> Stable revenue from real assets, combined with <br /> high-growth tech markets.
+          <strong>Diverse Exposure:</strong> Gain indirect exposure to real estate, DePIN <br /> infrastructure, and AI services through a single token.
         </p>
 
-        <Button target="_blank"
- href="https://yieldstone.gitbook.io/yieldstone-whitepaper" text={'View Whitepaper'} className="functionality-btn" />
+        <p className="functionality-info-text">
+          <strong>Stability and Upside:</strong> Stable revenue from real assets, combined with <br /> high-growth tech markets.
+        </p>
 
-        </div>
-
-
-    </>
+        <Button
+          target="_blank"
+          href="https://yieldstone.gitbook.io/yieldstone-whitepaper"
+          text={'View Whitepaper'}
+          className="functionality-btn"
+        />
+      </div>
+    </div>
   );
 };
 
