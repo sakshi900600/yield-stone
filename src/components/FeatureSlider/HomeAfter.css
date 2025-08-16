@@ -2,14 +2,13 @@
   width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
-  padding-top: 23px;
+  /* padding-top: 23px; */
 }
 
 .stripe {
   display: none;
   position: relative;
   height: 6px;
-  border-radius: 6px;
   overflow: hidden;
   margin-bottom: 13px;
 }

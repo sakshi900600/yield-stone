@@ -67,7 +67,6 @@ const About = () => {
           .toArray([
             card.querySelector(".about-header-top"),
             card.querySelector(".about-details"),
-            card.querySelector(".about-hover-image"),
           ])
           .forEach((child, i) => {
             gsap.fromTo(

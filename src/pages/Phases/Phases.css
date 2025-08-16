@@ -55,7 +55,7 @@
   border-radius: 30px;
   padding: 50px;
   width: 100%;
-  max-width: 550px;
+  max-width: 520px;
   color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -134,7 +134,7 @@
 }
 
 .phase-middle h1 {
-  font-size: 2rem;
+  font-size: 1.9rem;
   font-weight: 700;
   margin-bottom: 24px;
   line-height: 1.4;
@@ -168,7 +168,7 @@
 }
 
 .phase-card.is-active::before {
-  opacity: 0.2;
+  opacity: 0.5;
 }
 
 .phase-card.is-active {

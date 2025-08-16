@@ -23,7 +23,7 @@ import Usecases from './pages/Usecase/Usecases'
 import Roadmap_page from './components/Roadmap/Roadmap_page'
 import Home from './Home'
 import Phase from './pages/Phases/Phases'
-
+import Hero from './pages/Hero/Hero'
 
 const App = () => {
   return (
@@ -32,13 +32,9 @@ const App = () => {
 
 
     <Navbar />
-    {/* <Hero /> */}
+    <Hero />
 
-    <div style={{paddingTop: '20vh'}}>
-      <FeatureSlider />
-    </div>
-
-    {/* <FeatureSlider /> */}
+    <FeatureSlider />
     <About />
    <Benefits_card />
    <Technology />
